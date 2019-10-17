@@ -16,40 +16,19 @@ var Wrapper = Wrap
 
 // WrapGroup adds several routes from package `net/http/pprof` to *gin.RouterGroup object
 func WrapGroup(router *tsing.RouterGroup) {
-	routers := []struct {
-		Method  string
-		Path    string
-		Handler tsing.Handler
-	}{
-		{"GET", "/debug/pprof/", IndexHandler()},
-		{"GET", "/debug/pprof/heap", HeapHandler()},
-		{"GET", "/debug/pprof/goroutine", GoroutineHandler()},
-		{"GET", "/debug/pprof/allocs", AllocsHandler()},
-		{"GET", "/debug/pprof/block", BlockHandler()},
-		{"GET", "/debug/pprof/threadcreate", ThreadCreateHandler()},
-		{"GET", "/debug/pprof/cmdline", CmdlineHandler()},
-		{"GET", "/debug/pprof/profile", ProfileHandler()},
-		{"GET", "/debug/pprof/symbol", SymbolHandler()},
-		{"POST", "/debug/pprof/symbol", SymbolHandler()},
-		{"GET", "/debug/pprof/trace", TraceHandler()},
-		{"GET", "/debug/pprof/mutex", MutexHandler()},
-	}
-
-	//basePath := strings.TrimSuffix("", "/")
-	//var prefix string
-	//switch {
-	//case basePath == "":
-	//	prefix = ""
-	//case strings.HasSuffix(basePath, "/debug"):
-	//	prefix = "/debug"
-	//case strings.HasSuffix(basePath, "/debug/pprof"):
-	//	prefix = "/debug/pprof"
-	//}
-
-	for _, r := range routers {
-		//router.Handle(r.Method, strings.TrimPrefix(r.Path, prefix), r.Handler)
-		router.Handle(r.Method, r.Path, r.Handler)
-	}
+	router = router.GROUP("/debug/pprof")
+	router.Handle("GET", "/", IndexHandler())
+	router.Handle("GET", "/heap", HeapHandler())
+	router.Handle("GET", "/goroutine", GoroutineHandler())
+	router.Handle("GET", "/allocs", AllocsHandler())
+	router.Handle("GET", "/block", BlockHandler())
+	router.Handle("GET", "/threadcreate", ThreadCreateHandler())
+	router.Handle("GET", "/cmdline", CmdlineHandler())
+	router.Handle("GET", "/profile", ProfileHandler())
+	router.Handle("GET", "/symbol", SymbolHandler())
+	router.Handle("POST", "/symbol", SymbolHandler())
+	router.Handle("GET", "/trace", TraceHandler())
+	router.Handle("GET", "/mutex", MutexHandler())
 }
 
 // IndexHandler will pass the call from /debug/pprof to pprof
