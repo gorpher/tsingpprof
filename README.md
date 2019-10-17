@@ -32,7 +32,7 @@ func main()  {
     tsingpprof.Wrap(app)
 
 	//注册路由
-	app.Router.GET("/", func(ctx tsing.Context) error {
+	app.Router.GET("/", func(ctx *tsing.Context) error {
 		ctx.ResponseWriter.WriteHeader(200)
 		ctx.ResponseWriter.Write([]byte("Hello world!"))
 		//路由函数的出参为nil，表示路由控制器正常执行完毕

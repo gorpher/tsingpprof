@@ -1,4 +1,4 @@
-github.com/dxvgef/tsing v0.6.0 h1:jTJNRjedYyNhVJD8/DoveGJ76liGtP+nu8A1vg9umbg=
-github.com/dxvgef/tsing v0.6.0/go.mod h1:UdBZ8H9HluNTxhExkNX//RhzrL636laqVmBBpjleDPQ=
-github.com/julienschmidt/httprouter v1.2.0 h1:TDTW5Yz1mjftljbcKqRcrYhd4XeOoI98t+9HbQbYf7g=
-github.com/julienschmidt/httprouter v1.2.0/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7VTCxuUUipMqKk8s4w=
+github.com/dxvgef/tsing v0.7.1 h1:zgdmqt9dRNc8RYfnyxN5jKkwk2NNFHmaVfGpzQ1VN04=
+github.com/dxvgef/tsing v0.7.1/go.mod h1:kQIFcI8tiYT5+r7OC5Uz6QiV039EPQN0Qbpf2JvZq5w=
+github.com/julienschmidt/httprouter v1.3.0 h1:U0609e9tgbseu3rBINet9P48AI/D3oJs4dN7jwJOQ1U=
+github.com/julienschmidt/httprouter v1.3.0/go.mod h1:JR6WtHb+2LUe8TCKY3cZOxFyyO8IZAc4RVcycCCAKdM=

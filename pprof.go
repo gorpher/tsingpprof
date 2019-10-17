@@ -8,7 +8,7 @@ import (
 // 参考ginpprof : github.com/DeanThompson/ginpprof
 // Wrap adds several routes from package `net/http/pprof` to *gin.Engine object
 func Wrap(router *tsing.App) {
-	WrapGroup(&router.Router)
+	WrapGroup(router.Router)
 }
 
 // Wrapper make sure we are backward compatible
@@ -54,7 +54,7 @@ func WrapGroup(router *tsing.RouterGroup) {
 
 // IndexHandler will pass the call from /debug/pprof to pprof
 func IndexHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Index(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -62,7 +62,7 @@ func IndexHandler() tsing.Handler {
 
 // HeapHandler will pass the call from /debug/pprof/heap to pprof
 func HeapHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Handler("heap").ServeHTTP(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -70,7 +70,7 @@ func HeapHandler() tsing.Handler {
 
 // GoroutineHandler will pass the call from /debug/pprof/goroutine to pprof
 func GoroutineHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Handler("goroutine").ServeHTTP(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -78,7 +78,7 @@ func GoroutineHandler() tsing.Handler {
 
 // AllocsHandler will pass the call from /debug/pprof/allocs to pprof
 func AllocsHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Handler("allocs").ServeHTTP(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -86,7 +86,7 @@ func AllocsHandler() tsing.Handler {
 
 // BlockHandler will pass the call from /debug/pprof/block to pprof
 func BlockHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Handler("block").ServeHTTP(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -94,7 +94,7 @@ func BlockHandler() tsing.Handler {
 
 // ThreadCreateHandler will pass the call from /debug/pprof/threadcreate to pprof
 func ThreadCreateHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Handler("threadcreate").ServeHTTP(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -102,7 +102,7 @@ func ThreadCreateHandler() tsing.Handler {
 
 // CmdlineHandler will pass the call from /debug/pprof/cmdline to pprof
 func CmdlineHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Cmdline(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -110,7 +110,7 @@ func CmdlineHandler() tsing.Handler {
 
 // ProfileHandler will pass the call from /debug/pprof/profile to pprof
 func ProfileHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Profile(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -118,7 +118,7 @@ func ProfileHandler() tsing.Handler {
 
 // SymbolHandler will pass the call from /debug/pprof/symbol to pprof
 func SymbolHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Symbol(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -126,7 +126,7 @@ func SymbolHandler() tsing.Handler {
 
 // TraceHandler will pass the call from /debug/pprof/trace to pprof
 func TraceHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Trace(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}
@@ -134,7 +134,7 @@ func TraceHandler() tsing.Handler {
 
 // MutexHandler will pass the call from /debug/pprof/mutex to pprof
 func MutexHandler() tsing.Handler {
-	return func(ctx tsing.Context) error {
+	return func(ctx *tsing.Context) error {
 		pprof.Handler("mutex").ServeHTTP(ctx.ResponseWriter, ctx.Request)
 		return nil
 	}

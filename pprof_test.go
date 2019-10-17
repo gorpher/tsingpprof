@@ -6,7 +6,6 @@ import (
 	"github.com/wx11055/tsingpprof"
 	"net/http"
 	"testing"
-	"time"
 )
 
 func newServer() *tsing.App {
@@ -53,16 +52,16 @@ func TestRouters(t *testing.T) {
 func TestWrap(t *testing.T) {
 	app := newServer()
 	tsingpprof.Wrap(app)
-	go func() {
-		t.Run("startup server", func(t *testing.T) {
-			if err := http.ListenAndServe(":9999", app); err != nil {
-				t.Error(err)
-			}
-		})
-	}()
+	//go func() {
+	//	t.Run("startup server", func(t *testing.T) {
+	//		if err := http.ListenAndServe(":9999", app); err != nil {
+	//			t.Error(err)
+	//		}
+	//	})
+	//}()
 
-	t.Run("test routers ", func(t *testing.T) {
-		time.Sleep(5 * time.Second)
-		TestRouters(t)
-	})
+	//t.Run("test routers ", func(t *testing.T) {
+	//	time.Sleep(5 * time.Second)
+	//	TestRouters(t)
+	//})
 }
