@@ -1,7 +1,6 @@
 ### tsingpprof
 [![GoDoc](https://godoc.org/github.com/gorpher/tsingpprof?status.svg)](https://godoc.org/github.com/gorpher/tsingpprof)
-[![Build
-Status](https://travis-ci.org/gorpher/tsingpprof.svg?branch=master)](https://travis-ci.org/gorpher/tsingpprof)
+[![Build Status](https://travis-ci.org/gorpher/tsingpprof.svg?branch=master)](https://travis-ci.org/gorpher/tsingpprof)
 
 A wrapper for golang web framework `tsing` to use   `net/http/pprof` easily.
 
