@@ -1,7 +1,7 @@
 ### tsingpprof
-[![GoDoc](https://godoc.org/github.com/wx11055/tsingpprof?status.svg)](https://godoc.org/github.com/wx11055/tsingpprof)
+[![GoDoc](https://godoc.org/github.com/gorpher/tsingpprof?status.svg)](https://godoc.org/github.com/gorpher/tsingpprof)
 [![Build
-Status](https://travis-ci.org/wx11055/tsingpprof.svg?branch=master)](https://travis-ci.org/wx11055/tsingpprof)
+Status](https://travis-ci.org/gorpher/tsingpprof.svg?branch=master)](https://travis-ci.org/gorpher/tsingpprof)
 
 A wrapper for golang web framework `tsing` to use   `net/http/pprof` easily.
 
@@ -20,7 +20,7 @@ import (
 	"net/http"
 
 	"github.com/dxvgef/tsing"
-	"github.com/wx11055/tsingpprof"
+	"github.com/gorpher/tsingpprof"
 
 )
 
@@ -34,9 +34,9 @@ func main()  {
 	//注册路由
 	app.Router.GET("/", func(ctx *tsing.Context) error {
 		ctx.ResponseWriter.WriteHeader(200)
-		ctx.ResponseWriter.Write([]byte("Hello world!"))
-		//路由函数的出参为nil，表示路由控制器正常执行完毕
-		return nil
+		_, err := ctx.ResponseWriter.Write([]byte("Hello world"))
+        		//路由函数的出参为nil，表示路由控制器正常执行完毕
+        return err
 	})
 
 	if err := http.ListenAndServe(":8080", app); err != nil {

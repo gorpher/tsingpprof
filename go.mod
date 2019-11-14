@@ -1,4 +1,4 @@
-module github.com/wx11055/tsingpprof
+module github.com/gorpher/tsingpprof
 
 go 1.12
 

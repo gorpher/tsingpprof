@@ -1,8 +1,9 @@
 package tsingpprof
 
 import (
-	"github.com/dxvgef/tsing"
 	"net/http/pprof"
+
+	"github.com/dxvgef/tsing"
 )
 
 // 参考ginpprof : github.com/DeanThompson/ginpprof
